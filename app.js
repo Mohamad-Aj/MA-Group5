@@ -21,19 +21,19 @@ app.use(express.urlencoded({ extended: false }))
 
 const dbURI = 'mongodb+srv://mohamad_aj3:alonssael12A@cluster0.jtnxgjr.mongodb.net/Hospital?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => console.log('connected to db'))
+    .then(async (result) =>{ await console.log('connected to db')})
     .catch((err) => console.log(err));
-var db = mongoose.connection
+var db = mongoose.connection;
 
 db.on("error",console.error.bind(console,"connection error: "));
 db.once("open",function(){
-    console.log("connected successfully")
-})
+    console.log("connected successfully");
+});
 
 app.get('/',(req,res)=>{
     res.render('HomePage')
     res.statusCode = 200;
-})
+});
 
 
 app.get('/register', (req, res) => {
@@ -46,21 +46,20 @@ app.get('/login404' , (req, res) => {
 
 
 app.post('/register', async (req, res) => {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    // const hashedPassword = await bcrypt.hash(req.body.password, 10);
     db.collection('users').insertOne({
         fullname: req.body.fullname,
         birthdate: req.body.birthdate,
         email: req.body.email,
-        password: hashedPassword,
+        // password: hashedPassword,
+        password:req.body.password,
         ID: req.body.id1,
         phonenumber: req.body.phonenumber,
         gender: req.body.gender,
         JID: "/",
         notes:[]
     })
-    .then(()=>{
-        res.redirect('/HomePage');
-    })
+    res.redirect('/HomePage')
     
 });
 
@@ -99,4 +98,4 @@ app.use('/patient', patientRouter)
 
 app.listen(3000)
 
-module.exports = app;
+module.exports = {app,db};

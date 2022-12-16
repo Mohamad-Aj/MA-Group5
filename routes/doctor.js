@@ -68,7 +68,6 @@ router.route('/login').post(async (req, res) => {
                                 if (result) {
                                     // res.send("login ok")
                                     res.redirect(`/doctor/${user.id}`)
-
                                     res.end()
                                 }
                                 else {
