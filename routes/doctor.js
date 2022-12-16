@@ -86,6 +86,8 @@ router.route('/login').post(async (req, res) => {
     }
 })
 
+
+
 router.route('/Profile/:id').post(async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10); 
     const id = req.params.id;
