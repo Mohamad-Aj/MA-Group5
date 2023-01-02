@@ -4,7 +4,8 @@ const User = require('../models/user');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const db = require('../models/db')
-const Doctor = require('../models/doctor')
+const Doctor = require('../models/doctor');
+const e = require('express');
 
 
 router.route('/login').get((req, res) => {
@@ -55,20 +56,19 @@ router.route('/login').post(async (req, res) => {
     try {
         await User.findOne({ email: email })
             .then((user) => {
-                if (!user) { res.redirect('/login404').json({ mssg: "User does not exist" }) }
+                if (!user) { res.redirect('/login404') }
                 bcrypt.compare(password, user.password, async (err, result) => {
                     if (err) {
                         res.json({
                             error: err
                         })
                     }
-                    if (result) {
-                        await Doctor.findOne({ IDS: user.ID })
+                    else{
+                        Doctor.findOne({ IDS: user.ID })
                             .then((result) => {
                                 if (result) {
                                     // res.send("login ok")
                                     res.redirect(`/doctor/${user.id}`)
-
                                     res.end()
                                 }
                                 else {
@@ -85,6 +85,8 @@ router.route('/login').post(async (req, res) => {
         res.redirect('/login404')
     }
 })
+
+
 
 router.route('/Profile/:id').post(async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10); 
