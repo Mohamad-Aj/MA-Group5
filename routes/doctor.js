@@ -14,8 +14,6 @@ let session;
 const mongoose = require('mongoose')
 const dbURI = 'mongodb+srv://mohamad_aj3:alonssael12A@cluster0.jtnxgjr.mongodb.net/Hospital?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => console.log('connected to db'))
-    .catch((err) => console.log(err));
 var db = mongoose.connection
 
 var methodOverride = require("method-override");
@@ -94,8 +92,7 @@ router.get('/Profile/:id', async (req, res) => {
                     await res.render('doctor/Profile', { result: result, id: id })
 
                 }
-            })
-        updateCandles();
+            });
     } else {
         await res.redirect('/HomePage');
     }
@@ -307,7 +304,6 @@ router.route('/deleteNote/:id/:c').post(async (req, res) => {
                 await db.collection('users').updateOne({ fullname: result.fullname }, {
                     $pull: { notes: { i: text } }
                 })
-                updateCandles()
                 res.redirect(req.get('referer'));
 
             }
