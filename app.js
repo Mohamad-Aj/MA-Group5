@@ -45,10 +45,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((err) => console.log(err));
 var db = mongoose.connection;
 
-db.on("error",console.error.bind(console,"connection error: "));
-db.once("open",function(){
-    console.log("connected successfully");
-});
+// db.on("error",console.error.bind(console,"connection error: "));
+// db.once("open",function(){
+//     console.log("connected successfully");
+// });
 
 app.get('/',(req,res)=>{
     res.render('HomePage')

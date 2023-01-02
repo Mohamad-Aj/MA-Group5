@@ -4,6 +4,14 @@ const doctorRouter = require('../routes/doctor')
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
+
+
+const dbURI = 'mongodb+srv://mohamad_aj3:alonssael12A@cluster0.jtnxgjr.mongodb.net/Hospital?retryWrites=true&w=majority'
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(async (result) =>{ await console.log('connected to db')})
+    .catch((err) => console.log(err));
+var db = mongoose.connection;
+
 describe("Test the root path", () => {
     test("It should response the GET method", done => {
         request(app)
@@ -34,7 +42,7 @@ describe("POST /register", () => {
 
 describe("POST /doctor/login", () => {
     it("Should respond succeed the user exists in the database", async () => {
-        const newUser = await request(app).get("/doctor/login").send({
+        const newUser = await request(app).get("/patient/login").send({
             email: 'mohamadaj310@gmail.com',
             password: 'alonnsael12A'
 
