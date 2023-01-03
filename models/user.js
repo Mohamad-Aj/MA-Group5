@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const UserSchema = new mongoose.Schema({
     fullname: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     birthdate: {
         type: Date,
@@ -12,30 +13,45 @@ const UserSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     ID: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     phonenumber: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     gender: {
         type: String,
-        required: true
+        required: true,
     },
     JID: {
         type: String,
-        required: true
+        required: true,
     },
     notes:{
         type:Array
+    },
+    appointments:{
+        type:Array
+    },
+    patients:{
+        type:Array
+    },
+    OrderedCard:{
+        type:Boolean
+    },
+    code:{
+        type:String
     }
 }, { timestamps: true });
 
