@@ -57,6 +57,20 @@ router.get('/Index/:id', (req, res) => {
     }
 })
 
+router.get('/About/:id', (req, res) => {
+    if (session) {
+        const id = req.params.id;
+        User.findById(id)
+            .then(result => {
+                if (result) res.render('patient/About', { result: result })
+            })
+    }
+    else {
+        res.redirect('/HomePage')
+    }
+})
+
+
 router.get('/Appointments/:id', (req, res) => {
     if (session) {
         const DocRef = db.collection('alldoctors');

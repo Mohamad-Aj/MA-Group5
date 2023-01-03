@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Patient page</title>
+    <title>Order Card</title>
     <!-- Home page icon -->
     <!-- css -->
     <!-- <link rel="stylesheet" href="/Style/nurseIndex.css"> -->
@@ -38,48 +38,54 @@
     </header>
     <nav class="navbar navbar-dark bg-white fixed-top">
         <div class="container-fluid">
-            <ul class="nav " style="color: white;">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" style="font-size: 24px; color: #0298EC;"
-                        href="/patient/Index/<%= result.id %> ">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/patient/Appointments/<%= result.id %> "
-                        style="font-size: 18px; margin-top:6px; color: #0298EC;">Appointments</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/patient/Doctors/<%= result.id %>"
-                        style="font-size: 18px; margin-top:6px; color: #0298EC;">Doctors/Nurses</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/patient/Medicine/<%= result.id %>"
-                        style="font-size: 18px; margin-top:6px; color: #0298EC;">Medicine</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/patient/Profile/<%= result.id %>"
-                        style="font-size: 18px; margin-top:6px; color: #0298EC;">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/patient/Guide/<%= result.id %> "
-                        style="font-size: 18px; margin-top:6px; color: #0298EC;">Guide</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/patient/Rate/<%= result.id %> "
-                        style="font-size: 18px; margin-top:6px; color: #0298EC;">Rate Us</a>
-                </li>
-                <form action="/patient/LogOut" method="POST">
-                    <li class="nav-item">
-                        <button class="nav-link"
-                            style="margin-top: 5.9px; height: 20px; width: 20px; font-size: 18px;background-color: white;border: none; color: #0298EC;">Logout
-                        </button>
-                    </li>
-                </form>
-            </ul>
-            <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
+          <ul class="nav " style="color: white;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" style="font-size: 24px; color: #0298EC;"
+                href="/patient/Index/<%= result.id %> ">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patient/Appointments/<%= result.id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Appointments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patient/Doctors/<%= result.id %>"
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Doctors/Nurses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patient/Medicine/<%= result.id %>"
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Medicine</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patient/Profile/<%= result.id %>"
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patient/Guide/<%= result.id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Guide</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patient/Rate/<%= result.id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Rate Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patient/About/<%= result.id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patient/Lab/<%= result.id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Lab Results</a>
+            </li>
+            <form action="/patient/LogOut" method="POST">
+              <li class="nav-item">
+                <button class="nav-link"
+                  style="margin-top: 5.9px; height: 20px; width: 20px; font-size: 18px;background-color: white;border: none; color: #0298EC;">Logout
+                </button>
+              </li>
+            </form>
+          </ul>
+          <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
         </div>
-    </nav> <!-- <img src="images/alex-negroe-3XoA5WwD4ig-unsplash.jpg" alt=""> -->
-
-
+      </nav>
     <section class="container">
         <section class="wrapper">
             <header>
