@@ -124,12 +124,12 @@ function makeid(length) {
 
 app.post('/forgetpassword1', async (req, res) => {
     const code = makeid(11).toString();
-    User.findOne({email:req.body.email.toLowerCase()})
-    .then(result=>{
+    await User.findOne({email:req.body.email.toLowerCase()})
+    .then(async result=>{
         if(result){
             console.log('im in codeeeee')
             console.log(code)
-            db.collection('users').updateOne({email:req.body.email},{
+            await db.collection('users').updateOne({email:req.body.email},{
                 $set:{
                     code:code
                 }
@@ -152,12 +152,14 @@ app.post('/forgetpassword1', async (req, res) => {
         text: `Your Security Code is ${code}`
     };
 
-    transporter.sendMail(mailOptions, function (error, info) {
+    await transporter.sendMail(mailOptions,async function (error, info) {
         if (error) {
             console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
         }
+        // } else {
+
+        // //    await console.log('Email sent: ' + info.response);
+        // }
     });
     res.redirect('/forgetpassword2');
 

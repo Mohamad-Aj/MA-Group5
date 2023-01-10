@@ -117,7 +117,7 @@ router.route('/login').post(async (req, res) => {
     try {
         await User.findOne({ email: email })
             .then((user) => {
-                if (!user) { res.redirect('/login404').json({ mssg: "User does not exist" }) }
+                if (!user) { res.redirect('/login404').json({ mssg: "User does not exist" })}
                 bcrypt.compare(password, user.password, async (err, result1) => {
                     session = req.session
                     session.userid = email
