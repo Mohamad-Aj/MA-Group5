@@ -191,11 +191,6 @@ app.post('/forgetpassword2', async (req,res)=>{
 
 })
 
-app.post('/HomePage', (req, res) => {
-    req.session.destroy();
-    session = req.session
-    res.redirect('/HomePage')
-})
 
 
 app.use('/nurse', nurseRouter)
