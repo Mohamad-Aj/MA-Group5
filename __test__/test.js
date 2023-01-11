@@ -134,7 +134,7 @@ describe("POST /nurse/Profile", () => {
 
 
 describe("POST /forgetpassword", () => {
-    it("Should succeed and return status code 200", async () => {
+    it("Should succeed and return status code 302", async () => {
         const newUser = await request(app).post("/forgetpassword1").send({
             email: "mohamadaj310@gmail.com",
         });
@@ -143,6 +143,77 @@ describe("POST /forgetpassword", () => {
     })
 })
 
+describe("POST /forgetpassword", () => {
+    it("Should succeed and return status code 302", async () => {
+        const newUser = await request(app).post("/forgetpassword1").send({
+            email: "noah@gmail.com",
+        });
+        console.log(newUser.statusCode)
+        expect(newUser.statusCode).toBe(302);
+    })
+})
+
+describe("POST /forgetpassword", () => {
+    it("Should succeed and return status code 302", async () => {
+        const newUser = await request(app).post("/forgetpassword1").send({
+            email: "noah@gmail.com",
+        });
+        console.log(newUser.statusCode)
+        expect(newUser.statusCode).toBe(302);
+    })
+})
+
+
+describe("POST /patient/Appointments", () => {
+    it("Should respond error the appointment is taken", async () => {
+        const newUser = await request(app).post("/patient/Appointments/:id").send({
+            docs: "Noah Anderson",
+            time: "22:30",
+            date: "2023-10-10"
+        });
+
+        expect(newUser.statusCode).toBe(404);
+    })
+})
+
+describe("POST /doctor/Appointments", () => {
+    it("Should respond no appointment", async () => {
+        const newUser = await request(app).post("/doctor/Appointments/:id")
+
+        expect(newUser.statusCode).toBe(404);
+    })
+})
+
+
+describe("POST /doctor/Patients", () => {
+    it("Should respond no appointment", async () => {
+        const newUser = await request(app).post("/doctor/Appointments/:id/:i1/:i2/:i3/:i4")
+
+        expect(newUser.statusCode).toBe(404);
+    })
+})
+
+
+describe("POST /doctor/saveNote", () => {
+    it("Should respond no appointment", async () => {
+        const newUser = await request(app).post("/doctor/saveNote/63afebf514d74e4a6fccb9b6").send({
+            text:"wasjdkkasdjk"
+        });
+        expect(newUser.statusCode).toBe(302);
+    })
+})
+
+
+describe("POST /nurse/Lab", () => {
+    it("Should respond error the appointment is taken", async () => {
+        const newUser = await request(app).post("/nurse/Lab/63afef3cd4bc02c5be5ef736").send({
+            Res: "as[p[dopijhagds]] Anderson",
+            pats: "Mohamad Abu Jafar",
+        });
+
+        expect(newUser.statusCode).toBe(302);
+    })
+})
 
 
 
