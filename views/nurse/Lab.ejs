@@ -40,7 +40,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/nurse/Lab/<%= id %> "
-                        style="font-size: 18px; margin-top:6px; color: #0298EC;">Lab Results</a>
+                        style="font-size: 18px; margin-top:6px; color: #0298EC;">Lab
+                        Results</a>
                 </li>
                 <form action="/nurse/LogOut" method="POST">
                     <li class="nav-item">
@@ -82,7 +83,8 @@
     </div>
 
     <% if(result.notes.length> 0){%>
-        <h1 style="margin-left: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Results:</h1>
+        <h1 style="margin-left: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Results:
+        </h1>
         <% result.notes.forEach(rate=>{%>
             <div class="Review"
                 style=" display:inline-block; padding: 8px; margin-bottom: 8px; margin-left: 20px; border-radius: 4px; width: 400px; border:solid 2px #0298EC;">
@@ -95,8 +97,9 @@
                     <%= rate.Result%>
                 </p>
                 <form action="/nurse/deleteLab/<%= result.id %>/<%= rate.Result %>/<%= rate.Pat %>" method="POST">
-                <button style="background:  #0298EC; margin:10px; " class="w-50 btn btn-primary btn-lg" type="submit">Delete Result</button>
-            </form>
+                    <button style="background:  #0298EC; margin:10px; " class="w-50 btn btn-primary btn-lg"
+                        type="submit">Delete Result</button>
+                </form>
             </div>
             <%}) %>
                 <%} %>

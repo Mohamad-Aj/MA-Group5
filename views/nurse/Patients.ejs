@@ -27,31 +27,43 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-dark bg-white fixed-top">
-            <div class="container-fluid">
-              <ul class="nav " style="color: white;">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" style="font-size: 24px; color: #0298EC;"
-                    href="/nurse/Index/<%= id  %>">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/nurse/About/<%= id %> "
-                    style="font-size: 18px; margin-top:6px; color: #0298EC;">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/nurse/Guide/<%= id %> "
-                    style="font-size: 18px; margin-top:6px; color: #0298EC;">Guide</a>
-                </li>
-                <form action="/nurse/LogOut" method="POST">
-                  <li class="nav-item">
-                    <button class="nav-link"
-                      style="margin-top: 5.9px; height: 20px; width: 20px; font-size: 18px;background-color: white;border: none; color: #0298EC;">Logout
-                    </button>
-                  </li>
-                </form>
-              </ul>
-            </div>
-          </nav>
+      <nav class="navbar navbar-dark bg-white fixed-top">
+        <div class="container-fluid">
+          <ul class="nav " style="color: white;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" style="font-size: 24px; color: #0298EC;"
+                href="/nurse/Index/<%= id  %>">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nurse/About/<%= id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nurse/Guide/<%= id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Guide</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nurse/Profile/<%= id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nurse/Appointments/<%= id %> "
+                style="font-size: 18px; margin-top:6px; color: #0298EC;">Appointments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nurse/Lab/<%= id %> " style="font-size: 18px; margin-top:6px; color: #0298EC;">Lab
+                Results</a>
+            </li>
+            <form action="/nurse/LogOut" method="POST">
+              <li class="nav-item">
+                <button class="nav-link"
+                  style="margin-top: 5.9px; height: 20px; width: 20px; font-size: 18px;background-color: white;border: none; color: #0298EC;">Logout
+                </button>
+              </li>
+            </form>
+          </ul>
+        </div>
+      </nav>
         <div class="cont">
             <h1>List Of Patients</h1>
             <% if(patients.length> 0){ %>

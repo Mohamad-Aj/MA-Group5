@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const sessions = require('../app').sessions;
 const cookieParser = require('../app').cookieParser;
 let session;
+var nodemailer = require('nodemailer');
 // const Nurse = require('../models/nurse')
 
 const dbURI = 'mongodb+srv://mohamad_aj3:alonssael12A@cluster0.jtnxgjr.mongodb.net/Hospital?retryWrites=true&w=majority'

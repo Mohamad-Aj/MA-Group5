@@ -27,6 +27,16 @@
 
 </head>
 <body>
+  <header>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="https://www.negishim.com/accessibility/accessibility_pro.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      accessibility_rtl = true;
+      pixel_from_side = 20;
+      pixel_from_start = 20;
+    </script>
+
+  </header>
   <nav class="navbar navbar-dark bg-white fixed-top">
     <div class="container-fluid">
       <ul class="nav " style="color: white;">
@@ -80,39 +90,38 @@
   <div class="container">
     <!-- <div class="box side-box"><img src="/images/building.jpg" alt=""></div> -->
     <!-- <div class="box side-box1"></div> -->
-    <div class="boxs box1"><button id="Appointments"><a href="/doctor/Appointments"><img src="/images/appointments.png"
-            height="130" alt="appointments"></a>
+    <div class="boxs box1"><button id="Appointments"><a href="/patient/Appointments/<%= result.id  %> "><img
+            src="/images/appointments.png" height="130" alt="appointments"></a>
         <br>
         <h2>Appointments</h2>
       </button></div>
-    <div class="boxs box2"><button id="PatientsList"><a href="/doctor/Patients"><img src="/images/patientsList.png"
-            height="115" alt="patientsList"></a><br>
-        <h2>Doctors</h2>
+    <div class="boxs box2"><button id="PatientsList"><a href="/patient/Doctors/<%= result.id %> "><img
+            src="/images/patientsList.png" height="115" alt="patientsList"></a><br>
+        <h2>Doctors/Nurses</h2>
       </button></div>
-    <div class="boxs box3"><button id="profile"><a href="/doctor/Profile"><img src="/images/profile.jpg" height="130"
-            alt=""></a>
+    <div class="boxs box3"><button id="profile"><a href="/patient/Profile/<%= result.id %> "><img
+            src="/images/profile.jpg" height="130" alt=""></a>
         <br>
         <h2>Profile</h2>
       </button></div>
 
-    <div class="boxs box4"><button id="guide"><a href="/Guide"><img src="/images/user-guide.png" height="130"
-            width="130" style="margin-left: 28px;" alt=""></a><br>
+    <div class="boxs box4"><button id="guide"><a href="/patient/Guide/<%= result.id %>"><img
+            src=" /images/user-guide.png" height="130" width="130" style="margin-left: 28px;" alt=""></a><br>
         <h2>Guide</h2>
     </div>
-    <div class="boxs box1"><button id="Appointments"><a href="/doctor/Appointments"><img src="/images/medicine.webp"
-            width="145" height="133" alt="appointments"></a>
+    <div class="boxs box1"><button id="Appointments"><a href="/patient/Medicine/<%= result.id %> "><img
+            src="/images/medicine.webp" width="145" height="133" alt="appointments"></a>
         <br>
         <h2>Medicine</h2>
       </button></div>
-    <div class="boxs box2"><button id="guide"><a href="/Guide"><img src="/images/card.png" height="130" width="180"
-            style="margin-top: 0;" alt=""></a><br>
+    <div class="boxs box2"><button id="guide"><a href="/patient/OrderCard/<%= result.id %> "><img
+            src=" /images/card.png" height="130" width="180" style="margin-top: 0;" alt=""></a><br>
         <h2>Order Card</h2>
     </div>
 
     <!-- <div class="box box6"></div> -->
 
   </div>
-  <!-- <img src="images/alex-negroe-3XoA5WwD4ig-unsplash.jpg" alt=""> -->
   <div class="footer1">
     <footer>Copyright &copy; MA Hospital</footer>
   </div>
