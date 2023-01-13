@@ -67,6 +67,19 @@ router.get('/Profile/:id', async (req, res) => {
     }
 })
 
+router.get('/About/:id', (req, res) => {
+    if (session) {
+        const id = req.params.id;
+        User.findById(id)
+            .then(result => {
+                if (result) res.render('nurse/About', { id:id,result: result })
+            })
+    }
+    else {
+        res.redirect('/HomePage')
+    }
+})
+
 router.get('/Appointments/:id', async (req, res) => {
     if (session) {
         const id = req.params.id;

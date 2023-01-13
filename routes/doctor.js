@@ -10,6 +10,7 @@ const sessions = require('../app').sessions;
 const cookieParser = require('../app').cookieParser;
 let session;
 
+var nodemailer = require('nodemailer');
 
 const mongoose = require('mongoose')
 const dbURI = 'mongodb+srv://mohamad_aj3:alonssael12A@cluster0.jtnxgjr.mongodb.net/Hospital?retryWrites=true&w=majority'
@@ -95,6 +96,19 @@ router.get('/Profile/:id', async (req, res) => {
             });
     } else {
         await res.redirect('/HomePage');
+    }
+})
+
+router.get('/About/:id', (req, res) => {
+    if (session) {
+        const id = req.params.id;
+        User.findById(id)
+            .then(result => {
+                if (result) res.render('doctor/About', {id:id, result: result })
+            })
+    }
+    else {
+        res.redirect('/HomePage')
     }
 })
 
@@ -263,6 +277,33 @@ router.route('/Appointments/:id/:time/:date/:patn').post(async (req, res) => {
                 await db.collection('users').updateOne({ fullname: result.fullname }, { $pull: { "appointments": { name: n, date: date, time: time } } })
                 db.collection('users').updateOne({ fullname: n }, { $pull: { "appointments": { name: result.fullname, date: date, time: time } } })
                 db.collection('allappoints').deleteOne({ name: result.fullname, time: time, date: date })
+                User.findOne({fullname:n})
+                .then(r=>{
+                    if(r){
+                        var transporter = nodemailer.createTransport({
+                            service: 'gmail',
+                            auth: {
+                                user: 'mahospital7@gmail.com',
+                                pass: 'njlyzuukbkffwmcq'
+                            }
+                        });
+
+                        var mailOptions = {
+                            from: 'mahospital7@gmail.com',
+                            to: r.email,
+                            subject: 'Appointment Ended/Canceled',
+                            text: `Your Appointment is Cancelled`
+                        };
+    
+                        transporter.sendMail(mailOptions, function (error, info) {
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                console.log('Email sent: ' + info.response);
+                            }
+                        })
+                    }
+                })
                 res.redirect(req.get('referer'));
 
             }
