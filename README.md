@@ -12,6 +12,3 @@
 
  * To open the website on your domain write:
  ![Open the website](/public/images/carbon2.png)
-
- *This should be your home page and welcome to MA:
- ![Home Page website](/public/images/HomePage.png)
