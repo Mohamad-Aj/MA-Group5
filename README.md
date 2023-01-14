@@ -3,6 +3,7 @@
 
 * First When downloading the files to your local pc you need to install all the libraries by using:
 ![How to install the packages](/public/images/carbon.png)
+ *then you type (nodemon app/ node app) to run the server
 
 * This is the database connection: 
  ![Database connection](/public/images/carbon1.png)
