@@ -12,4 +12,5 @@
  * In the begining we were working with normal .html files but then switched to .ejs because it easier to access the database data and it uses both js and html in the same form which is far more better and easier to work with.
 
  * To open the website on your domain write:
+ * And then you can start testing the project like you wish
  ![Open the website](/public/images/carbon2.png)
