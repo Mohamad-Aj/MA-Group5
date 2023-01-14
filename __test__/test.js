@@ -23,21 +23,21 @@ describe("Test the root path", () => {
     });
 });
 
-// describe("POST /register", () => {
-//     it("Should succeed and return status code 302", async () => {
-//         const newUser = await request(app).post("/register").send({
-//             fullname: "Ankajhjhswgd",
-//             birthdate: Date(),//json.toString(req.body.birthdate),
-//             email: "Aasnbasddvh@gmail.com",
-//             password: "12345e6",
-//             id1: "213121369915",
-//             phonenumber: "052328462f345",
-//             gender: "Male",
-//         });
-//         console.log(newUser.statusCode)
-//         expect(newUser.statusCode).toBe(302);
-//     })
-// })
+describe("POST /register", () => {
+    it("Should succeed and return status code 302", async () => {
+        const newUser = await request(app).post("/register").send({
+            fullname: "Ankajhjhswgd",
+            birthdate: Date(),//json.toString(req.body.birthdate),
+            email: "Aasnbasddvh@gmail.com",
+            password: "12345e6",
+            id1: "213121369915",
+            phonenumber: "052328462f345",
+            gender: "Male",
+        });
+        console.log(newUser.statusCode)
+        expect(newUser.statusCode).toBe(302);
+    })
+})
 
 
 describe("POST /doctor/login", () => {
@@ -143,7 +143,7 @@ describe("POST /forgetpassword", () => {
     })
 })
 
-describe("POST /forgetpassword", () => {
+describe("POST /forgetpassword2", () => {
     it("Should succeed and return status code 302", async () => {
         const newUser = await request(app).post("/forgetpassword1").send({
             email: "noah@gmail.com",
@@ -166,7 +166,7 @@ describe("POST /patient/Appointments", () => {
 })
 
 describe("POST /doctor/Appointments", () => {
-    it("Should respond no appointment", async () => {
+    it("Should open appointment page", async () => {
         const newUser = await request(app).get("/doctor/Appointments/63afeb3114d74e4a6fccb9aa")
 
         expect(newUser.statusCode).toBe(302);
@@ -244,6 +244,16 @@ describe("POST /nurse/Appointments", () => {
     it("Should respond with success and open the appointments", async () => {
         const newUser = await request(app).get("/nurse/Appointments/63afed0514d74e4a6fccb9c8").send({
         });
+        expect(newUser.statusCode).toBe(302);
+    })
+})
+
+
+
+describe("POST /nurse/Patients", () => {
+    it("Should respond successfully with patients page", async () => {
+        const newUser = await request(app).get("/nurse/Patients/63afed0514d74e4a6fccb9c8")
+
         expect(newUser.statusCode).toBe(302);
     })
 })
