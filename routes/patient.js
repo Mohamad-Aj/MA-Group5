@@ -544,7 +544,6 @@ router.route('/Medicine/:id/:med').post((req, res) => {
     User.findById(id)
         .then(result => {
             if (result) {
-                console.log(result)
                 var mailOptions = {
                     from: 'mahospital7@gmail.com',
                     to: result.email,
@@ -556,7 +555,6 @@ router.route('/Medicine/:id/:med').post((req, res) => {
                     if (error) {
                         console.log(error);
                     } else {
-                        console.log('Email sent: ' + info.response);
                     }
                 });
             }
@@ -594,7 +592,7 @@ router.route('/OrderCard/:id').post((req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            console.log('Email sent: ' + info.response);
+                            // console.log('Email sent: ' + info.response);
                         }
                     });
 
@@ -630,5 +628,9 @@ router.route('/LogOut').post((req, res) => {
     session = req.session
     res.redirect('/HomePage')
 })
+
+router.all('*', (req, res) => {
+    res.status(404).render('login404');
+  });
 
 module.exports = router;

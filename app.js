@@ -198,6 +198,9 @@ app.use('/', indexRouter)
 app.use('/doctor', doctorRouter)
 app.use('/patient', patientRouter)
 
+app.all('*', (req, res) => {
+    res.status(404).render('login404');
+  });
 
 app.listen(3000)
 

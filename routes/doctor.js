@@ -273,7 +273,6 @@ router.route('/Appointments/:id/:time/:date/:patn').post(async (req, res) => {
     User.findById(id)
         .then(async (result) => {
             if (result) {
-                console.log(time)
                 await db.collection('users').updateOne({ fullname: result.fullname }, { $pull: { "appointments": { name: n, date: date, time: time } } })
                 db.collection('users').updateOne({ fullname: n }, { $pull: { "appointments": { name: result.fullname, date: date, time: time } } })
                 db.collection('allappoints').deleteOne({ name: result.fullname, time: time, date: date })
@@ -299,7 +298,6 @@ router.route('/Appointments/:id/:time/:date/:patn').post(async (req, res) => {
                             if (error) {
                                 console.log(error);
                             } else {
-                                console.log('Email sent: ' + info.response);
                             }
                         })
                     }
@@ -360,6 +358,9 @@ router.route('/LogOut').post((req, res) => {
     res.redirect('/HomePage')
 })
 
+router.all('*', (req, res) => {
+    res.status(404).render('login404');
+  });
 
 
 module.exports = router;
